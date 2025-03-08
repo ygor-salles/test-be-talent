@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import { Home } from './pages/Home';
+import { Employees } from './pages/Employess';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { THEME } from './styles/theme';
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider theme={{ ...THEME }}>
       <GlobalStyle />
-      <Home />
+      <Employees />
     </ThemeProvider>
   );
 }

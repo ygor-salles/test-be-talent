@@ -18,7 +18,7 @@ const colors = {
 const shadow = {
   1: '0px 1px 2px 0px #00000033',
   2: '0px 2px 4px 0px #00000033',
-  3: 'box-shadow: 0px 2px 8px 0px #00000033',
+  3: '0px 2px 8px 0px #00000033',
 };
 
 const spacing = {
