@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "db": "json-server --watch database/db.json --port 4000",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
@@ -12,8 +13,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "json-server": "1.0.0-beta.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

@@ -1,9 +1,10 @@
-import { test } from '@/utils/test';
+import { BaseLayout } from '@/components/BaseLayout';
+import { Typography } from '@/components/Typography';
 
 export function Home() {
   return (
-    <div>
-      <h1>Home {test()}</h1>
-    </div>
+    <BaseLayout>
+      <Typography variant="span">Tabela</Typography>
+    </BaseLayout>
   );
 }
