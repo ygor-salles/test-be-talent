@@ -1,9 +1,10 @@
 import { useTheme } from 'styled-components';
 import { Typography } from '../Typography';
-import { StyledTable, TableContainer, TBody, Td, TdEmpty, Th, THead, Tr } from './styles';
+import { Row } from './components/Row';
+import { StyledTable, TableContainer, TBody, Th, THead } from './styles';
 import { ITableProps } from './types';
 
-export function Table<T extends object>({ data, cellsConfig }: ITableProps<T>) {
+export function Table<T extends object>(props: ITableProps<T>) {
   const { colors } = useTheme();
 
   return (
@@ -11,7 +12,7 @@ export function Table<T extends object>({ data, cellsConfig }: ITableProps<T>) {
       <StyledTable>
         <THead>
           <tr>
-            {cellsConfig.map(({ key, label }) => (
+            {props.cellsConfig.map(({ key, label }) => (
               <Th key={key as string}>
                 <Typography variant="span" color={colors.white}>
                   {label}
@@ -22,23 +23,7 @@ export function Table<T extends object>({ data, cellsConfig }: ITableProps<T>) {
         </THead>
 
         <TBody>
-          {data?.length > 0 ? (
-            data.map((rowData, rowIndex) => (
-              <Tr key={rowData?.['id' as never] ?? rowIndex}>
-                {cellsConfig.map(({ key, renderComponent }) => (
-                  <Td key={key as string}>
-                    {renderComponent?.(rowData[key as never], rowData, rowIndex) ?? (
-                      <Typography variant="span">{rowData[key as never]}</Typography>
-                    )}
-                  </Td>
-                ))}
-              </Tr>
-            ))
-          ) : (
-            <Tr>
-              <TdEmpty colSpan={cellsConfig.length}>Não há dados para exibir</TdEmpty>
-            </Tr>
-          )}
+          <Row {...props} />
         </TBody>
       </StyledTable>
     </TableContainer>

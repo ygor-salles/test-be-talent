@@ -2,9 +2,9 @@ import { Avatar, Typography } from '@/components';
 import { ICellsConfigTable } from '@/components/Table/types';
 import { formatDate, formatPhoneNumber } from '@/utils';
 
-import { IDataTableEmployees } from '../types';
+import { IDataEmployees } from '@/dtos/employees/get-all-employes.dto';
 
-export const cellsConfig: ICellsConfigTable<IDataTableEmployees> = [
+export const cellsConfig: ICellsConfigTable<IDataEmployees> = [
   {
     key: 'image',
     label: 'FOTO',

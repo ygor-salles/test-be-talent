@@ -9,4 +9,5 @@ export type ICellsConfigTable<T> = Array<{
 export interface ITableProps<T> {
   cellsConfig: ICellsConfigTable<T>;
   data: Array<T>;
+  isLoading?: boolean;
 }

@@ -1,10 +1,12 @@
 import { BaseLayout, InputSearch, Table, Typography } from '@/components';
 
 import { cellsConfig } from './constants/table.config';
-import { dataMock } from './mock/dataMock';
+import { useGetAllEmployees } from './hooks/useGetAllEmployees';
 import { Container, WrapperTitle } from './styles';
 
 export function Employees() {
+  const { data, isLoading } = useGetAllEmployees();
+
   return (
     <BaseLayout>
       <Container>
@@ -13,7 +15,7 @@ export function Employees() {
           <InputSearch placeholder="Pesquisar" />
         </WrapperTitle>
 
-        <Table cellsConfig={cellsConfig} data={dataMock} />
+        <Table cellsConfig={cellsConfig} data={data} isLoading={isLoading} />
       </Container>
     </BaseLayout>
   );
