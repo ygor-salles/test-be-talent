@@ -24,7 +24,6 @@ export const StyledTable = styled.table`
 
 export const THead = styled.thead`
   ${({ theme }) => css`
-    height: 47px;
     background-color: ${theme.colors.blue.primary};
   `}
 `;
@@ -36,7 +35,6 @@ export const TBody = styled.tbody`
 `;
 
 export const Tr = styled.tr`
-  height: 47px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.gray.neutral5};
 `;
 
@@ -45,6 +43,7 @@ export const Th = styled.th`
     text-align: left;
     padding-left: ${theme.spacing['6x']};
     color: ${theme.colors.white};
+    height: 47px;
   `}
 `;
 
@@ -52,5 +51,14 @@ export const Td = styled.td`
   ${({ theme }) => css`
     padding-left: ${theme.spacing['6x']};
     text-align: left;
+    height: 47px;
+  `}
+`;
+
+export const TdEmpty = styled.td`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray.neutral20};
+    text-align: center;
+    height: 300px;
   `}
 `;

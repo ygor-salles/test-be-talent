@@ -1,0 +1,7 @@
+import styled from 'styled-components';
+
+export const Img = styled.img`
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+`;

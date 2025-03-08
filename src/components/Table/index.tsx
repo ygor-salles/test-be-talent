@@ -1,8 +1,9 @@
 import { useTheme } from 'styled-components';
 import { Typography } from '../Typography';
-import { TableContainer, StyledTable, THead, TBody, Th, Td, Tr } from './styles';
+import { StyledTable, TableContainer, TBody, Td, TdEmpty, Th, THead, Tr } from './styles';
+import { ITableProps } from './types';
 
-export function Table() {
+export function Table<T extends object>({ data, cellsConfig }: ITableProps<T>) {
   const { colors } = useTheme();
 
   return (
@@ -10,68 +11,34 @@ export function Table() {
       <StyledTable>
         <THead>
           <tr>
-            <Th>
-              <Typography variant="span" color={colors.white}>
-                FOTO
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="span" color={colors.white}>
-                NOME
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="span" color={colors.white}>
-                CARGO
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="span" color={colors.white}>
-                DATA DE ADMISSÃO
-              </Typography>
-            </Th>
-            <Th>
-              <Typography variant="span" color={colors.white}>
-                TELEFONE
-              </Typography>
-            </Th>
+            {cellsConfig.map(({ key, label }) => (
+              <Th key={key as string}>
+                <Typography variant="span" color={colors.white}>
+                  {label}
+                </Typography>
+              </Th>
+            ))}
           </tr>
         </THead>
+
         <TBody>
-          <Tr>
-            <Td>
-              <Typography variant="span">Foto</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Nome</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Cargo</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Data de Admissão</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Telefone</Typography>
-            </Td>
-          </Tr>
-          <Tr>
-            <Td>
-              <Typography variant="span">Foto</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Nome</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Cargo</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Data de Admissão</Typography>
-            </Td>
-            <Td>
-              <Typography variant="span">Telefone</Typography>
-            </Td>
-          </Tr>
+          {data?.length > 0 ? (
+            data.map((rowData, rowIndex) => (
+              <Tr key={rowData?.['id' as never] ?? rowIndex}>
+                {cellsConfig.map(({ key, renderComponent }) => (
+                  <Td key={key as string}>
+                    {renderComponent?.(rowData[key as never], rowData, rowIndex) ?? (
+                      <Typography variant="span">{rowData[key as never]}</Typography>
+                    )}
+                  </Td>
+                ))}
+              </Tr>
+            ))
+          ) : (
+            <Tr>
+              <TdEmpty colSpan={cellsConfig.length}>Não há dados para exibir</TdEmpty>
+            </Tr>
+          )}
         </TBody>
       </StyledTable>
     </TableContainer>

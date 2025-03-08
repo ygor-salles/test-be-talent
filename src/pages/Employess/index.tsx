@@ -1,8 +1,8 @@
-import { BaseLayout } from '@/components/BaseLayout';
-import { InputSearch } from '@/components/InputSearch';
-import { Typography } from '@/components/Typography';
+import { BaseLayout, InputSearch, Table, Typography } from '@/components';
+
+import { cellsConfig } from './constants/table.config';
+import { dataMock } from './mock/dataMock';
 import { Container, WrapperTitle } from './styles';
-import { Table } from '@/components/Table';
 
 export function Employees() {
   return (
@@ -13,7 +13,7 @@ export function Employees() {
           <InputSearch placeholder="Pesquisar" />
         </WrapperTitle>
 
-        <Table />
+        <Table cellsConfig={cellsConfig} data={dataMock} />
       </Container>
     </BaseLayout>
   );
