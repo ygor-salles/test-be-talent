@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import { Employees } from './pages/Employess';
+import { Employees } from './pages/Employees';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { THEME } from './styles/theme';
 
