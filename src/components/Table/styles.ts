@@ -13,6 +13,10 @@ export const StyledTable = styled.table`
     min-width: 600px;
     border-collapse: collapse;
     box-shadow: ${theme.shadow[1]};
+
+    ${theme.breakpoints.xs} {
+      min-width: initial;
+    }
   `}
 `;
 
@@ -25,14 +29,5 @@ export const THead = styled.thead`
 export const TBody = styled.tbody`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
-  `}
-`;
-
-export const Th = styled.th`
-  ${({ theme }) => css`
-    text-align: left;
-    padding-left: ${theme.spacing['6x']};
-    color: ${theme.colors.white};
-    height: 47px;
   `}
 `;

@@ -1,30 +1,18 @@
-import { useTheme } from 'styled-components';
-
-import { Typography } from '../Typography';
-import { Row } from './components/Row';
-import { StyledTable, TableContainer, TBody, Th, THead } from './styles';
+import { RowBody } from './components/RowBody';
+import { RowHead } from './components/RowHead';
+import { StyledTable, TableContainer, TBody, THead } from './styles';
 import { ITableProps } from './types';
 
 export function Table<T extends object>(props: ITableProps<T>) {
-  const { colors } = useTheme();
-
   return (
     <TableContainer>
       <StyledTable>
         <THead>
-          <tr>
-            {props.cellsConfig.map(({ key, label }) => (
-              <Th key={key as string}>
-                <Typography variant="span" color={colors.white}>
-                  {label}
-                </Typography>
-              </Th>
-            ))}
-          </tr>
+          <RowHead cellsConfig={props.cellsConfig} />
         </THead>
 
         <TBody>
-          <Row {...props} />
+          <RowBody {...props} />
         </TBody>
       </StyledTable>
     </TableContainer>
