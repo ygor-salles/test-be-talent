@@ -36,18 +36,23 @@ export function RowBody<T>({ cellsConfig, data, isLoading }: IRowBodyProps<T>) {
     <>
       {data.map((rowData, rowIndex) => (
         <Fragment key={rowData?.['id' as never] ?? rowIndex}>
-          <Tr>
+          <Tr onClick={() => toggleRow(rowIndex)}>
             <ContentRow
               cellsConfig={cellsConfig}
               rowData={rowData}
               rowIndex={rowIndex}
+              isOpen={openRow === rowIndex}
               onToggleRow={toggleRow}
             />
           </Tr>
-          {xs && openRow === rowIndex && (
-            <Tr>
-              <ContentAccordion cellsConfig={cellsConfig} rowData={rowData} rowIndex={rowIndex} />
-            </Tr>
+
+          {xs && (
+            <ContentAccordion
+              cellsConfig={cellsConfig}
+              rowData={rowData}
+              rowIndex={rowIndex}
+              isOpen={openRow === rowIndex}
+            />
           )}
         </Fragment>
       ))}

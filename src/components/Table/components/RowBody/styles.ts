@@ -6,8 +6,11 @@ export const Td = styled.td`
   ${({ theme }) => css`
     padding-left: ${theme.spacing['6x']};
     text-align: left;
+    border-top: 1px solid ${({ theme }) => theme.colors.gray.neutral5};
+
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
     height: 49px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray.neutral5};
 
     ${theme.breakpoints.xs} {
       height: 60px;
@@ -32,17 +35,21 @@ export const ButtonIcon = styled.button`
 `;
 
 export const TdAccordion = styled.td`
-  ${({ theme: { spacing } }) => css`
-    padding: ${spacing['6x']} ${spacing['3x']};
-    width: 100%;
-  `}
+  width: 100%;
 `;
 
-export const ContainerAccordion = styled.div`
-  ${({ theme }) => css`
+export const ContainerAccordion = styled.div<{ $isOpen: boolean }>`
+  ${({ theme: { spacing }, $isOpen }) => css`
     display: flex;
     flex-direction: column;
-    gap: ${theme.spacing['3x']};
+    gap: ${spacing['3x']};
+    overflow: hidden;
+    max-height: ${$isOpen ? '500px' : '0'};
+    opacity: ${$isOpen ? '1' : '0'};
+    padding: ${$isOpen ? `${spacing['6x']} ${spacing['3x']}` : 0};
+    transition:
+      max-height 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
   `}
 `;
 

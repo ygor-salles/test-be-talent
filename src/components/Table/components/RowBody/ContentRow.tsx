@@ -8,6 +8,7 @@ export function ContentRow<T>({
   cellsConfig,
   rowData,
   rowIndex,
+  isOpen,
   onToggleRow,
 }: IContentRowProps<T>) {
   const { xs } = useWindowSize();
@@ -26,7 +27,10 @@ export function ContentRow<T>({
           ))}
         <Td>
           <ButtonIcon type="button" onClick={() => onToggleRow(rowIndex)}>
-            <img src={IMAGES.SVG.chevron_down_blue} alt="chevron down" />
+            <img
+              src={isOpen ? IMAGES.SVG.chevron_up_blue : IMAGES.SVG.chevron_down_blue}
+              alt={isOpen ? 'chevron up' : 'chevron down'}
+            />
           </ButtonIcon>
         </Td>
       </>
