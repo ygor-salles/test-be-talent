@@ -10,4 +10,11 @@ export interface IContentRowProps<T> {
   cellsConfig: ICellsConfigTable<T>;
   rowData: T;
   rowIndex: number;
+  onToggleRow: (index: number) => void;
+}
+
+export interface IContentAccordionProps<T> {
+  cellsConfig: ICellsConfigTable<T>;
+  rowData: T;
+  rowIndex: number;
 }

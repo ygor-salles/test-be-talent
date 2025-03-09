@@ -23,3 +23,34 @@ export const TdColspan = styled.td`
     height: 300px;
   `}
 `;
+
+export const ButtonIcon = styled.button`
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+`;
+
+export const TdAccordion = styled.td`
+  ${({ theme: { spacing } }) => css`
+    padding: ${spacing['6x']} ${spacing['3x']};
+    width: 100%;
+  `}
+`;
+
+export const ContainerAccordion = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing['3x']};
+  `}
+`;
+
+export const RowAccordion = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed ${theme.colors.gray.neutral10};
+  `}
+`;

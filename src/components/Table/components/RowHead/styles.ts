@@ -25,5 +25,7 @@ export const Circle = styled.div`
     height: 8px;
     border-radius: 50%;
     background-color: ${theme.colors.white};
+
+    margin-left: 10px;
   `}
 `;

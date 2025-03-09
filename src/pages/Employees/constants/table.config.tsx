@@ -7,25 +7,25 @@ import { IDataEmployees } from '@/dtos/employees/get-all-employes.dto';
 export const cellsConfig: ICellsConfigTable<IDataEmployees> = [
   {
     key: 'image',
-    label: 'FOTO',
+    label: 'Foto',
     renderComponent: (value, rowData) => <Avatar src={value} name={rowData?.name} />,
   },
   {
     key: 'name',
-    label: 'NOME',
+    label: 'Nome',
   },
   {
     key: 'job',
-    label: 'CARGO',
+    label: 'Cargo',
   },
   {
     key: 'admission_date',
-    label: 'DATA DE ADMISSÃO',
+    label: 'Data de admissão',
     renderComponent: value => <Typography variant="span">{formatDate(value)}</Typography>,
   },
   {
     key: 'phone',
-    label: 'TELEFONE',
+    label: 'Telefone',
     renderComponent: value => <Typography variant="span">{formatPhoneNumber(value)}</Typography>,
   },
 ];

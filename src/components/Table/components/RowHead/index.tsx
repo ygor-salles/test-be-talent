@@ -17,7 +17,7 @@ export function RowHead<T>({ cellsConfig }: IRowHeadProps<T>) {
           .map(({ key, label }) => (
             <Th key={key as string}>
               <Typography variant="span" color={colors.white}>
-                {label}
+                {label.toUpperCase()}
               </Typography>
             </Th>
           ))}

@@ -1,9 +1,15 @@
 import useWindowSize from '@/hooks/useWindowSize';
 import { IContentRowProps } from './types';
-import { Td } from './styles';
+import { ButtonIcon, Td } from './styles';
 import { Typography } from '@/components/Typography';
+import { IMAGES } from '@/assets/images';
 
-export function ContentRow<T>({ cellsConfig, rowData, rowIndex }: IContentRowProps<T>) {
+export function ContentRow<T>({
+  cellsConfig,
+  rowData,
+  rowIndex,
+  onToggleRow,
+}: IContentRowProps<T>) {
   const { xs } = useWindowSize();
 
   if (xs) {
@@ -18,7 +24,11 @@ export function ContentRow<T>({ cellsConfig, rowData, rowIndex }: IContentRowPro
               )}
             </Td>
           ))}
-        <Td>*</Td>
+        <Td>
+          <ButtonIcon type="button" onClick={() => onToggleRow(rowIndex)}>
+            <img src={IMAGES.SVG.chevron_down_blue} alt="chevron down" />
+          </ButtonIcon>
+        </Td>
       </>
     );
   }
