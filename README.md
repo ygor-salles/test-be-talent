@@ -31,7 +31,7 @@ Isso iniciará o `json-server`, que servirá os dados para a aplicação.
 
 ### 3️⃣ Rode a aplicação
 
-Após iniciar o servidor JSON, execute o comando abaixo para iniciar o ambiente de desenvolvimento:
+Após iniciar o servidor JSON, abara outro terminal e execute o comando abaixo para iniciar o ambiente de desenvolvimento:
 
 ```sh
 pnpm dev
