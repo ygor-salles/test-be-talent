@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# Projeto Vite + React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto desenvolvido com [Vite](https://vitejs.dev/) utilizando React e TypeScript.  
+Ele conta com um servidor JSON (`json-server`) para popular a tabela de dados.
 
-Currently, two official plugins are available:
+## 📌 Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada)
+- [pnpm](https://pnpm.io/) (caso não tenha, instale com `npm install -g pnpm`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Como rodar o projeto
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+### 1️⃣ Instale as dependências
+
+```sh
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Inicie o servidor JSON
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+O projeto utiliza o `json-server` para simular uma API local.  
+Antes de rodar a aplicação, inicie o servidor com o comando:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+```sh
+pnpm db
 ```
+
+Isso iniciará o `json-server`, que servirá os dados para a aplicação.
+
+### 3️⃣ Rode a aplicação
+
+Após iniciar o servidor JSON, execute o comando abaixo para iniciar o ambiente de desenvolvimento:
+
+```sh
+pnpm dev
+```
+
+A aplicação será aberta em: [http://localhost:5173](http://localhost:5173)
+
+## 📦 Scripts disponíveis
+
+- `pnpm install` – Instala as dependências do projeto
+- `pnpm db` – Inicia o `json-server` para fornecer dados à aplicação
+- `pnpm dev` – Inicia o servidor de desenvolvimento do Vite
+- `pnpm build` – Gera a versão final para produção
+- `pnpm preview` – Visualiza o build da aplicação
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
