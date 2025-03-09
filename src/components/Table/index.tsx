@@ -1,4 +1,5 @@
 import { useTheme } from 'styled-components';
+
 import { Typography } from '../Typography';
 import { Row } from './components/Row';
 import { StyledTable, TableContainer, TBody, Th, THead } from './styles';

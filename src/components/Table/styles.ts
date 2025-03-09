@@ -5,12 +5,6 @@ export const TableContainer = styled.div`
   overflow-x: auto;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-
-  ${({ theme }) => css`
-    ${theme.breakpoints.tablet} {
-      overflow-x: scroll;
-    }
-  `}
 `;
 
 export const StyledTable = styled.table`

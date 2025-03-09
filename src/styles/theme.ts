@@ -34,21 +34,29 @@ const spacing = {
 };
 
 const breakpoints = {
-  mobileSm: '@media screen and (max-width: 320px)',
-  mobileMd: '@media screen and (max-width: 375px)',
-  mobileLg: '@media screen and (max-width: 425px)',
-  tablet: '@media screen and (max-width: 768px)',
-  laptop: '@media screen and (max-width: 1024px)',
-  laptopLg: '@media screen and (max-width: 1440px)',
-  desktop: '@media screen and (max-width: 1919px)',
-  desktopLg: '@media screen and (min-width: 1920px)',
+  xs: '@media screen and (max-width: 375px)',
+  sm: '@media screen and (max-width: 600px)',
+  md: '@media screen and (max-width: 900px)',
+  lg: '@media screen and (max-width: 1200px)',
+  xl: '@media screen and (max-width: 1536px)',
+  xxl: '@media screen and (min-width: 1537px)',
   custom: (size: number) => `@media screen and (max-width: ${size}px)`,
+};
+
+const screenMeasurements = {
+  xs: 375,
+  sm: 600,
+  md: 900,
+  lg: 1200,
+  xl: 1536,
+  xxl: 1537,
 };
 
 export type Theme = {
   colors: typeof colors;
   spacing: typeof spacing;
   breakpoints: typeof breakpoints;
+  screenMeasurements: typeof screenMeasurements;
   shadow: typeof shadow;
 };
 
@@ -56,5 +64,6 @@ export const THEME: Theme = {
   colors,
   spacing,
   breakpoints,
+  screenMeasurements,
   shadow,
 };
