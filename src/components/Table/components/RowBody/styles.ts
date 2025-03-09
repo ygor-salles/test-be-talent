@@ -61,3 +61,8 @@ export const RowAccordion = styled.div`
     border-bottom: 1px dashed ${theme.colors.gray.neutral10};
   `}
 `;
+
+export const ChevronIcon = styled.img<{ $isOpen: boolean }>`
+  transition: transform 0.4s ease-in-out;
+  transform: rotate(${({ $isOpen }) => ($isOpen ? '180deg' : '0deg')});
+`;

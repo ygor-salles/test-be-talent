@@ -1,6 +1,6 @@
 import useWindowSize from '@/hooks/useWindowSize';
 import { IContentRowProps } from './types';
-import { ButtonIcon, Td } from './styles';
+import { ButtonIcon, ChevronIcon, Td } from './styles';
 import { Typography } from '@/components/Typography';
 import { IMAGES } from '@/assets/images';
 
@@ -27,10 +27,7 @@ export function ContentRow<T>({
           ))}
         <Td>
           <ButtonIcon type="button" onClick={() => onToggleRow(rowIndex)}>
-            <img
-              src={isOpen ? IMAGES.SVG.chevron_up_blue : IMAGES.SVG.chevron_down_blue}
-              alt={isOpen ? 'chevron up' : 'chevron down'}
-            />
+            <ChevronIcon src={IMAGES.SVG.chevron_down_blue} alt={'chevron'} $isOpen={isOpen} />
           </ButtonIcon>
         </Td>
       </>
